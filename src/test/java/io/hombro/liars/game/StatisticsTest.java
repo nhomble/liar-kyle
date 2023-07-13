@@ -1,6 +1,5 @@
 package io.hombro.liars.game;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -16,7 +15,7 @@ public class StatisticsTest {
     })
     @ParameterizedTest
     void factorial(int i, int o) {
-        assertEquals(o, Statistics.factorial(i));
+        assertEquals(o, Statistics.factorial(i).longValue());
     }
 
     @CsvSource(value = {

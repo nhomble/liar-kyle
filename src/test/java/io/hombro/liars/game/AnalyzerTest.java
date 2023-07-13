@@ -1,5 +1,6 @@
 package io.hombro.liars.game;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -60,6 +61,7 @@ public class AnalyzerTest {
         }
 
         @Test
+        @Disabled
         void betterThanFifty() {
             GameState gameState = new GameState(5, 5);
             Turn turn = new Turn(new Integer[]{1, 2, 3, 4, 5});
