@@ -1,6 +1,5 @@
 package io.hombro.liars.game;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -61,14 +60,6 @@ public class AnalyzerTest {
         }
 
         @Test
-        @Disabled
-        void betterThanFifty() {
-            GameState gameState = new GameState(5, 5);
-            Turn turn = new Turn(new Integer[]{1, 2, 3, 4, 5});
-            assertTrue(analyzer.calculateGreaterOrEqualTo(gameState, turn, 6, 4) > .5);
-        }
-
-        @Test
         void law() {
             double d = 0;
             GameState gameState = new GameState(2, 5);
@@ -77,6 +68,14 @@ public class AnalyzerTest {
                 d += analyzer.calculateExactly(gameState, turn, 6, i);
             }
             double diff = Math.abs(1 - d);
+            assertTrue(diff < eps);
+        }
+
+        @Test
+        void all() {
+            GameState gameState = new GameState(2, 5);
+            Turn turn = new Turn(new Integer[]{1, 1, 1, 1, 1});
+            double diff = Math.abs(1 - analyzer.calculateGreaterOrEqualTo(gameState, turn, 6, 0));
             assertTrue(diff < eps);
         }
     }
