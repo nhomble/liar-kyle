@@ -15,7 +15,7 @@ public class App {
     }
 
     @Component
-    public static class ChefPrompt implements PromptProvider {
+    public static class LiarPrompt implements PromptProvider {
 
         @Override
         public final AttributedString getPrompt() {
